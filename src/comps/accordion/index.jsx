@@ -3,7 +3,6 @@
 import Accordion from '@mui/material/Accordion'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import AccordionSummary from '@mui/material/AccordionSummary'
-import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import {useState} from 'react'
 import { Button } from '@mui/material'
@@ -37,7 +36,7 @@ export default function AccordionComp({
           // className='flex justify-between items-center'
         >
           <div 
-            className='flex justify-between items-center text-red-700 w-full pr-12'
+            className='flex justify-between items-center text-black w-full pr-12'
           >
             <h1
               className=''
@@ -64,7 +63,7 @@ export default function AccordionComp({
           >
             <Button
               variant='outlined'
-              className='p-1 text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 md:p-2'
+              
             >
               Details
             </Button>

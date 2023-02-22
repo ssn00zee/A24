@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import movies from 'data/a24.json'
-import Link from 'next/link'
 import Nav from '@/comps/nav'
 import AccordionComp from '@/comps/accordion'
-
+import Image from 'next/image'
 
 export default function Home() {
 
@@ -16,20 +15,31 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav />
     <main
-      className='h-screen md:overflow-y-hidden'
+      className='h-[90vh] md:overflow-y-hidden'
     >
-    <Nav />
       <div
-        className='w-screen h-screen grid grid-rows-2 md:grid-cols-2'
+        className='w-screen h-screen grid sm:grid-rows-2 md:grid-cols-2'
       >
         <div 
-          className='w-full h-screen bg-blue-400'
+          className='w-full h-screen flex justify-center items-center flex-col gap-6 md:p-6 md:justify-between'
         >
-
+          <Image
+            src={'/A24logo.svg'}
+            width={450}
+            height={600}
+          />
+          <p 
+            className='md:max-w-md max-w-xs'
+          >
+            A24 is a lauded American entertainment conglomerate acclaimed for its diverse and highly-regarded cinematic repertoire, featuring iconic titles such as "Moonlight," "Lady Bird," and "The Florida Project." 
+            This multimedia powerhouse has also established a commanding presence in the television and publishing sectors through its highly successful productions and publications, under the banner of A24 Books. 
+            The organization's minimalistic yet arresting logo and dynamic social media presence exemplify its unique brand identity as a visionary leader and influencer in the entertainment industry.
+          </p>
         </div>
         <div
-          className='w-full h-screen md:overflow-y-scroll'
+          className='w-full h-screen md:overflow-y-scroll md:h-screen'
         >
         {
           movies &&

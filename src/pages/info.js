@@ -34,7 +34,7 @@ export default function Info(){
       url: 'https://imdb8.p.rapidapi.com/title/get-videos',
       params: {tconst: title, limit: '25', region: 'US'},
       headers: {
-        'X-RapidAPI-Key': 'a5b6f3bf44msh665ca1ae8073608p181b46jsnb624bd5165a8',
+        'X-RapidAPI-Key': process.env.NEXT_PUBLIC_RAPID_API,
         'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
       }
     }
@@ -57,21 +57,37 @@ export default function Info(){
 
   return (
     <>
-      <div>
-        <h1>
-          {title}
-        </h1>
+      <div
+        className="w-screen h-screen grid sm:grid-rows-2 md:grid-cols-2"
+      >
+          {image  && 
+        <div
+          className="w-full h-full flex justify-start items-center flex-col md:h-screen"
+        >
+          <Image 
+            src={`${image}`}
+            width={500}
+            height={750}
+            alt={'movie poster'}
+            className={'md:max-w-[500px] md:max-h-[750px] sm:max-w-[250px] sm:max-h-[375px]'}
+            />
+        </div>
+          }
+        <div
+          className="w-full h-full md:h-screen"
+        >
+          <h1>
+            {title}
+          </h1>
           <p>
-          {cast}
+            {cast}
           </p>
-        {image  && 
-        <Image 
-          src={`${image}`}
-          width={500}
-          height={750}
-          alt={'movie poster'}
-        />
-        }
+          <p>
+            {foundMovie && 
+             foundMovie.Plot
+            }
+          </p>
+        </div>
       </div>
     </>
   )
