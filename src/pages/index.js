@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import movies from 'data/a24.json'
 import Link from 'next/link'
+import Nav from '@/comps/nav'
+import AccordionComp from '@/comps/accordion'
+
 
 export default function Home() {
 
@@ -13,38 +16,37 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    <main>
-      <div>
-        <h1>Movies</h1>
-        <div>
+    <main
+      className='h-screen md:overflow-y-hidden'
+    >
+    <Nav />
+      <div
+        className='w-screen h-screen grid grid-rows-2 md:grid-cols-2'
+      >
+        <div 
+          className='w-full h-screen bg-blue-400'
+        >
+
+        </div>
+        <div
+          className='w-full h-screen md:overflow-y-scroll'
+        >
         {
+          movies &&
           movies.map((movie, i) => {
             return (
-              <Link 
-                href={{
-                  pathname: '/info',
-                  query: {
-                    name : encodeURIComponent(movie.title),
-                    cast : movie.Starring.replace(/[\[\]']+/g,''),
-                    runtime : movie["Running time (int)"],
-                    releaseDate : encodeURIComponent(movie["Release dates (datetime)"].replace(/^(\d{4})-\d{2}-\d{2}$/, '$1'))
-                  }
-                }}
+              <AccordionComp 
+                title={movie.title} 
+                cast={movie.Starring.replace(/[\[\]']+/g,'')} 
+                index={i+1} 
                 key={i}
-              >
-                <div>
-                  <h1
-                    onClick={() => {
-                      console.log(movie["Release dates (datetime)"])
-                      // findMovie(movie.title)
-                    }}
-                  >{movie.title}</h1>
-                  <p>{movie.Starring.replace(/[\[\]']+/g,'')}</p>
-                </div>
-              </Link>
+                release={movie["Release dates (datetime)"].replace(/^(\d{4})-\d{2}-\d{2}$/, '$1')}
+                movie={movie}
+              />
             )
           })
         }
+
         </div>
       </div>
     </main>
