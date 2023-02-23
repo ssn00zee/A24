@@ -38,9 +38,9 @@ export default function Home() {
           <p 
             className='md:max-w-md max-w-sm sm:text-s sm:w-full p-2'
           >
-            {`A24 is a lauded American entertainment conglomerate acclaimed for its diverse and highly-regarded cinematic repertoire, featuring iconic titles such as "Moonlight," "Lady Bird," and "The Florida Project."
-            ${<br />}
-            This multimedia powerhouse has also established a commanding presence in the television and publishing sectors through its highly successful productions and publications, under the banner of A24 Books. 
+            {`A24 is a lauded American entertainment conglomerate acclaimed for its diverse and highly-regarded cinematic repertoire, featuring iconic titles such as "Moonlight," "Lady Bird," and "The Florida Project."`}
+            <br />
+            {`This multimedia powerhouse has also established a commanding presence in the television and publishing sectors through its highly successful productions and publications, under the banner of A24 Books. 
             The organization's minimalistic yet arresting logo and dynamic social media presence exemplify its unique brand identity as a visionary leader and influencer in the entertainment industry.`}
           </p>
         </div>
