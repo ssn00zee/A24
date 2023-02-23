@@ -2,7 +2,7 @@ import useRouter from "next/router"
 import axios from "axios"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import Nav from "@/comps/nav"
+import Head from "next/head"
 
 
 export default function Info(){
@@ -58,6 +58,12 @@ export default function Info(){
 
   return (
     <>
+    <Head>
+      <title>A24 Movie Catalogue</title>
+      <meta name="description" content="A24 Movie Catalogue" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/A24logo.svg" />
+    </Head>
     <main
       className="flex justify-center items-center flex-col "
     >
