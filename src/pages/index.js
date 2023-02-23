@@ -15,31 +15,36 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav />
     <main
-      className='h-[90vh] md:overflow-y-hidden'
+      className='flex overflow-y-hidden flex-col'
     >
       <div
-        className='w-screen h-screen grid sm:grid-rows-2 md:grid-cols-2'
+        className='w-screen h-[calc(100vh_-_4rem)] grid sm:grid-cols-1 sm:grid-rows-2 md:grid-cols-2 md:grid-rows-1'
       >
         <div 
-          className='w-full h-screen flex justify-center items-center flex-col gap-6 md:p-6 md:justify-between'
+          className='h-full flex justify-between items-center flex-col md:p-6'
         >
-          <Image
-            src={'/A24logo.svg'}
-            width={450}
-            height={600}
-          />
-          <p 
-            className='md:max-w-md max-w-xs'
+          <div
+            className='sm:max-w-[250px] sm:max-h-[375px]'
           >
-            A24 is a lauded American entertainment conglomerate acclaimed for its diverse and highly-regarded cinematic repertoire, featuring iconic titles such as "Moonlight," "Lady Bird," and "The Florida Project." 
+            <Image
+              src={'/A24logo.svg'}
+              width={450}
+              height={600}
+              className={'container'}
+            />
+          </div>
+          <p 
+            className='md:max-w-md max-w-sm sm:text-s sm:w-full p-2'
+          >
+            A24 is a lauded American entertainment conglomerate acclaimed for its diverse and highly-regarded cinematic repertoire, featuring iconic titles such as "Moonlight," "Lady Bird," and "The Florida Project."
+            <br />
             This multimedia powerhouse has also established a commanding presence in the television and publishing sectors through its highly successful productions and publications, under the banner of A24 Books. 
             The organization's minimalistic yet arresting logo and dynamic social media presence exemplify its unique brand identity as a visionary leader and influencer in the entertainment industry.
           </p>
         </div>
         <div
-          className='w-full h-screen md:overflow-y-scroll md:h-screen'
+          className='w-full h-full overflow-y-scroll'
         >
         {
           movies &&

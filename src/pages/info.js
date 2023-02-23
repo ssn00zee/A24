@@ -2,6 +2,7 @@ import useRouter from "next/router"
 import axios from "axios"
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Nav from "@/comps/nav"
 
 
 export default function Info(){
@@ -57,38 +58,51 @@ export default function Info(){
 
   return (
     <>
+    <main
+      className="flex justify-center items-center flex-col "
+    >
       <div
-        className="w-screen h-screen grid sm:grid-rows-2 md:grid-cols-2"
+        className="w-full h-[calc(100vh_-_4rem)] grid sm:grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-8  justify-center px-4 py-1"
       >
+        <div
+          className="w-full h-full flex justify-center items-center flex-col container"
+        >
           {image  && 
-        <div
-          className="w-full h-full flex justify-start items-center flex-col md:h-screen"
-        >
-          <Image 
-            src={`${image}`}
-            width={500}
-            height={750}
-            alt={'movie poster'}
-            className={'md:max-w-[500px] md:max-h-[750px] sm:max-w-[250px] sm:max-h-[375px]'}
+            <Image 
+              src={`${image}`}
+              width={500}
+              height={750}
+              alt={'movie poster'}
+              className={'md:max-w-[500px] md:max-h-[750px] sm:max-w-[250px] sm:max-h-[375px] container'}
             />
-        </div>
           }
+        </div>
+
+
         <div
-          className="w-full h-full md:h-screen"
-        >
-          <h1>
+          className="w-full h-full  md:flex justify-center flex-col container"
+          >
+          <h1
+            className="md:text-6xl sm:text-2xl font-normal leading-normal mt-0 mb-2 text-pink-800"
+            >
             {title}
           </h1>
-          <p>
+          <p
+            className="md:text-3xl sm:text-xl font-normal leading-normal mt-0 mb-2 text-pink-800"
+            >
             {cast}
           </p>
-          <p>
+          <p
+            className="pb-4"
+            >
             {foundMovie && 
              foundMovie.Plot
             }
           </p>
         </div>
       </div>
+
+    </main>
     </>
   )
 }
