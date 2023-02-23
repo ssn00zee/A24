@@ -22,7 +22,7 @@ export default function Home() {
         className='w-screen h-[calc(100vh_-_4rem)] grid sm:grid-cols-1 sm:grid-rows-2 md:grid-cols-2 md:grid-rows-1'
       >
         <div 
-          className='h-full flex justify-between items-center flex-col md:p-6'
+          className='h-full w-full flex justify-between items-center flex-col md:p-6'
         >
           <div
             className='sm:max-w-[250px] sm:max-h-[375px]'
