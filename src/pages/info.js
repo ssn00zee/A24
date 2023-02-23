@@ -7,27 +7,14 @@ import Nav from "@/comps/nav"
 
 export default function Info(){
 
-  const r = useRouter
-
+  
   const [foundMovie, setFoundMovie] = useState()
   const [title, setTitle] = useState('')
   const [cast, setCast] = useState('')
   const [image, setImage] = useState()
-
-
-  const findMovie = async () => {
-
-    const url = `https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API}&t=${r.query.name}&y=${r.query.releaseDate}&plot=full`
- 
-    try {
-      const res = await axios.get(url)
-      setFoundMovie(res.data)
-      findImage(res.data.imdbID)
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
+  
+  
+  
   
   const findImage = async (title) => {
     const options = {
@@ -39,18 +26,31 @@ export default function Info(){
         'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
       }
     }
-
+    
     try {
       const res = await axios.request(options)
-
+      
       console.log(res.data.resource.image.url, 'image')
       setImage(res.data.resource.image.url)
     } catch (e) {
       console.log(e)
     }
   }
-
+  
   useEffect(() => {
+    const r = useRouter
+    const findMovie = async () => {
+      
+      const url = `https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API}&t=${r.query.name}&y=${r.query.releaseDate}&plot=full`
+      
+      try {
+        const res = await axios.get(url)
+        setFoundMovie(res.data)
+        findImage(res.data.imdbID)
+      } catch (e) {
+        console.log(e)
+      }
+    }
     findMovie()
     setTitle(decodeURIComponent(r.query.name))
     setCast(r.query.cast)

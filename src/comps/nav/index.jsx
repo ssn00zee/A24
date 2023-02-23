@@ -20,6 +20,7 @@ export default function Nav(){
         r.push('/')
       }}
       className={'hover:cursor-pointer'}
+      alt='A24 STUDIO'
     />
 
     </div>
